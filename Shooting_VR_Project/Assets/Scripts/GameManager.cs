@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     
     public　static GameManager instance;
     public GameObject Player;
+    public List<GameObject> TargetEnemyList = new List<GameObject>(); //画面内の敵のリスト
 
     #region 変数群
 
@@ -78,6 +79,7 @@ public class GameManager : MonoBehaviour
         if (instance == null)
         { instance = this; }
         DontDestroyOnLoad(gameObject);
+
     }
 
 
