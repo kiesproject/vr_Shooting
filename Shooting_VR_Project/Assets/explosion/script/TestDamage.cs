@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestDamage : MonoBehaviour
+public class TestDamage : AirFighter
 {
-    [SerializeField] int HP = 3;
+    //[SerializeField] int HP = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -22,12 +22,13 @@ public class TestDamage : MonoBehaviour
     {
         Debug.Log("Hit!!");
 
-        HP -= damage;
-        Debug.Log(HP);
+        Damage((float)damage);
 
-        if (HP <= 0)
-        {
-            Destroy(this.gameObject);
-        }
+        Debug.Log(hp);
+
+        //if (HP <= 0)
+        //{
+        //    Destroy(this.gameObject);
+        //}
     }
 }
