@@ -25,6 +25,7 @@ public abstract class AirFighter : MonoBehaviour
     private virtual protected void Shooting_down()
     {
         //HPがゼロになった時の処理
+        Destroy(this.gameObject);
     }
 
     //ダメージを与える(敵からの攻撃)
