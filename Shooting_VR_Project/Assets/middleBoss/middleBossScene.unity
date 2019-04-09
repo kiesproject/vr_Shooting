@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -252,8 +252,6 @@ GameObject:
   - component: {fileID: 456656735}
   - component: {fileID: 456656734}
   - component: {fileID: 456656733}
-  - component: {fileID: 456656738}
-  - component: {fileID: 456656737}
   - component: {fileID: 456656739}
   m_Layer: 0
   m_Name: MiddleBoss
@@ -335,46 +333,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &456656737
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 456656732}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!320 &456656738
-PlayableDirector:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 456656732}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 58821a29f89086f4f88eee38c19ba3d3, type: 2}
-  m_InitialState: 1
-  m_WrapMode: 1
-  m_DirectorUpdateMode: 1
-  m_InitialTime: 0
-  m_SceneBindings:
-  - key: {fileID: 114545992212445908, guid: 58821a29f89086f4f88eee38c19ba3d3, type: 2}
-    value: {fileID: 456656737}
-  - key: {fileID: 114455706758997780, guid: 25b0ac9fc3fb5b04592825b69aa22d0e, type: 2}
-    value: {fileID: 456656737}
-  m_ExposedReferences:
-    m_References: []
 --- !u!114 &456656739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -387,6 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76dd79af984689441b3a4b9e97fb594f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Beacons: []
   playableDirector: {fileID: 669418778}
 --- !u!1001 &638716647
 PrefabInstance:

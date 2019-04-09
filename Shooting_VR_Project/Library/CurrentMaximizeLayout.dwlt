@@ -26,7 +26,7 @@ MonoBehaviour:
   m_MinSize: {x: 911, y: 424}
   m_MaxSize: {x: 22006, y: 10000}
   vertical: 0
-  controlID: 1167
+  controlID: 359
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 424}
   m_MaxSize: {x: 4002, y: 8024}
   vertical: 1
-  controlID: 1146
+  controlID: 234
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -300,8 +300,8 @@ MonoBehaviour:
     y: 395
     width: 734
     height: 345
-  m_MinSize: {x: 202, y: 224}
-  m_MaxSize: {x: 4002, y: 4024}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 2}
   m_Panes:
   - {fileID: 2}
@@ -372,7 +372,7 @@ MonoBehaviour:
   m_MinSize: {x: 204, y: 348}
   m_MaxSize: {x: 4004, y: 8048}
   vertical: 1
-  controlID: 1121
+  controlID: 289
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -430,7 +430,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 4af9fffff02c0000022d0000102d0000702d0000
+      m_ExpandedIDs: befbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -582,7 +582,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 4c290000
     m_LastClickedID: 10572
-    m_ExpandedIDs: ffffffff000000008e2a0000b42a0000dc2a0000e82a0000622b0000c82b0000ae2c0000
+    m_ExpandedIDs: ffffffff00000000582600007e260000a6260000b22600002c2700009227000078280000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -608,9 +608,9 @@ MonoBehaviour:
       m_ResourceFile: 
   m_AssetTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 222d0000
+    m_SelectedIDs: d4280000
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff000000008e2a0000b42a0000dc2a0000e82a0000622b0000c82b0000ae2c0000
+    m_ExpandedIDs: ffffffff00000000582600007e260000a6260000b22600002c2700009227000078280000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -635,8 +635,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 222d0000
-    m_LastClickedInstanceID: 11554
+    m_SelectedInstanceIDs: d4280000
+    m_LastClickedInstanceID: 10452
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: 
     m_RenameOverlay:
