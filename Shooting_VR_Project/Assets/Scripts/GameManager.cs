@@ -90,7 +90,12 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        var x = Input.GetAxis("Horizontal");
+        var y = Input.GetAxis("Vertical");
+
+        Move_key(x, y);
+
+
     }
 
     //--------------------入力-----------------------
