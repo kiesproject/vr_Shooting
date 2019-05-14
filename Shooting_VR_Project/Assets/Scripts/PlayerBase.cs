@@ -21,7 +21,7 @@ public class PlayerBase : AirFighter
         base.Start();
         GM = GameManager.instance;
         property |= Property.isInvulnerable; //不死身にする
-        Launch_AriFighter();
+        //Launch_AriFighter();
     }
 
     // Update is called once per frame

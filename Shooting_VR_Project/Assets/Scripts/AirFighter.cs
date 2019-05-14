@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+
 #if UNITY_EDITOR
 using UnityEditor;
 using UnityEditorInternal;
@@ -48,6 +49,7 @@ public  class AirFighter : MonoBehaviour
     protected virtual void Start()
     {
         
+
     }
 
     protected virtual void Update()
@@ -108,6 +110,33 @@ public  class AirFighter : MonoBehaviour
 
             return;
         }
+    }
+
+    protected virtual IEnumerator Fly_AriFighter2()
+    {
+        yield return null;
+    }
+
+    //スプライン曲線
+    private Vector3 CalcSpline(Vector3 p1, Vector3 p2, Vector3 v1, Vector3 v2, float t)
+    {
+        Matrix4x4 T = new Matrix4x4();
+        Matrix4x4 H = new Matrix4x4();
+        Matrix4x4 G = new Matrix4x4();
+
+        T.m00 = t * t * t; T.m01 = t * t; T.m02 = t; T.m03 = 1;
+
+        H.m00 = 2; H.m01 = -2; H.m02 = 1; H.m03 = 1;
+        H.m10 = -3; H.m11 = 3; H.m12 = -2; H.m13 = -1;
+        H.m20 = 0; H.m21 = 0; H.m22 = 1; H.m23 = 0;
+        H.m30 = 1; H.m31 = 0; H.m32 = 0; H.m33 = 0;
+
+        G.m00 = p1.x; G.m01 = p1.y; G.m02 = p1.z; G.m03 = 1;
+        G.m10 = p2.x; G.m11 = p2.y; G.m12 = p2.z; G.m13 = 1;
+        G.m20 = v1.x; G.m21 = v1.y; G.m22 = v1.z; G.m23 = 1;
+        G.m30 = v2.x; G.m31 = v2.y; G.m32 = v2.z; G.m33 = 1;
+
+        return (T * H * G).GetRow(0);
     }
 
     //飛行メソッド
@@ -288,7 +317,7 @@ public  class AirFighter : MonoBehaviour
         [DrawGizmo(GizmoType.Active | GizmoType.NonSelected)]
         static void DrawExampleGizmos(AirFighter airFighter, GizmoType gizmoType)
         {
-            if (airFighter.Route_List.Count <= 0) return; //ルートが設定されていない
+            if (airFighter.Route_List == null) return; //ルートが設定されていない
             if (!airFighter.onGizmo) return; //ギズモがオフになっている
 
             var vertexes = airFighter.Route_List;

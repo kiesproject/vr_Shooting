@@ -13,6 +13,8 @@ public class Player : AirFighter
 
     [SerializeField]
     private float speed = 1.0f;
+    [SerializeField]
+    private GameObject PlayerModel;
 
     private Rigidbody rig;
     private float moveForceMultiplier = 20.0f;
@@ -22,6 +24,11 @@ public class Player : AirFighter
     {
         GM = GameManager.instance;
         rig = GetComponent<Rigidbody>();
+        if (rig == null)
+            rig = gameObject.AddComponent<Rigidbody>();
+        
+            
+        
     }
 
     // Update is called once per frame
@@ -46,6 +53,12 @@ public class Player : AirFighter
     {
 
     }
+
+    //モデルの動き
+    private void Player_Model_Move()
+    {
+
+    } 
 
     //操作移動するメソッド
     void Move_Player_Meta()
