@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6336156798275143695}
   - component: {fileID: 6336156798275143792}
   - component: {fileID: 6336156798275143693}
+  - component: {fileID: 3613665532949803020}
   m_Layer: 0
   m_Name: MISSILE_Example
   m_TagString: Untagged
@@ -174,6 +175,22 @@ TrailRenderer:
   m_MinVertexDistance: 0.5
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!54 &3613665532949803020
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6336156798275143793}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6336156799762491924
 GameObject:
   m_ObjectHideFlags: 0

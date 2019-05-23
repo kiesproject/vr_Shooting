@@ -5,7 +5,8 @@ using UnityEngine;
 public class Missile : MonoBehaviour
 {
     [SerializeField, Tooltip("弾速")]
-    float speed = 10;
+    float speed = 0.1f;
+    float dmpSpeed = 0.01f;
 
     //衝突するレイヤー
     //基本playerかenemyを選択する。
@@ -54,8 +55,10 @@ public class Missile : MonoBehaviour
         if (!trigger) return;
         //---------------------------------------------------
         time += Time.deltaTime * speed;
+        speed += dmpSpeed;
         poss4 = target.transform.position;
         transform.position = GetPoint(poss1, poss2, poss3, poss4 , time);
+        transform.LookAt(GetPoint(poss1, poss2, poss3, poss4, time + 1));
 
         if (time > 1)
         {
@@ -93,8 +96,6 @@ public class Missile : MonoBehaviour
 
         var d = Vector3.Lerp(a, b, t);
         var e = Vector3.Lerp(b, c, t);
-
-        transform.LookAt(b);
 
         return Vector3.Lerp(d, e, t);
         
