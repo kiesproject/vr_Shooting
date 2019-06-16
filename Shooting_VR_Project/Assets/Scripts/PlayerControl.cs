@@ -46,13 +46,13 @@ public class PlayerControl : MonoBehaviour
         float dx, dy;
         LimitMove(out dx, out dy);
         //dx = 0; dy = 0;
-        Debug.Log("dx:"+dx+" dy:"+dy);
+        //Debug.Log("dx:"+dx+" dy:"+dy);
         //dy = 0;
 
         //入力情報を設定
         moveVector = (Vector3.right - (dx * Vector3.right)) * speed * horizontal + (Vector3.up - (dy * Vector3.up)) * speed * vertical;
 
-        Debug.Log("moveVector:" + moveVector);
+        //Debug.Log("moveVector:" + moveVector);
 
         //移動する
         transform.localPosition += moveVector * Time.deltaTime;
@@ -110,7 +110,7 @@ public class PlayerControl : MonoBehaviour
             dx = 0;
         }
 
-        Debug.Log("y: " + transform.localPosition.y);
+        //Debug.Log("y: " + transform.localPosition.y);
 
         if ((limit - a <= transform.localPosition.y) && (vertical > 0))
         {

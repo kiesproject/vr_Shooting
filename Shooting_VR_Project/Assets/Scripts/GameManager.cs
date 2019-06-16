@@ -7,7 +7,10 @@ public class GameManager : MonoBehaviour
     
     public　static GameManager instance;
     public GameObject Player;
-    public List<GameObject> TargetEnemyList; 
+    public List<GameObject> TargetEnemyList;
+
+    [SerializeField]
+    private bool VR_Swicth = false;
 
     #region 変数群
 
@@ -28,11 +31,13 @@ public class GameManager : MonoBehaviour
     //===カメラ切り替えボタン===
     private bool _Camera_Switch;
 
+    private float Push_Up_Time = 0;
+
     //===武装状態===
     //0 : 通常装備
     //1 : ミサイル
     //2 : 特殊装備(切り替え不可) 
-    private int _Weapon;
+    private int _Weapon = 0;
 
     //x軸読み取り専用
     public float Horizontal
@@ -91,12 +96,20 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var x = Input.GetAxis("Horizontal");
-        var y = Input.GetAxis("Vertical");
+        if (!VR_Swicth)
+        {
+            //自動で戻す奴
+            Up_Weapon_Switch();
+            var x = Input.GetAxis("Horizontal");
+            var y = Input.GetAxis("Vertical");
 
-        Move_key(x, y);
+            Move_key(x, y);
 
-
+            if (Input.GetKey(KeyCode.V))
+            {
+                Push_Trigger(); //ショットを発射
+            }
+        }
     }
 
     //--------------------入力-----------------------
@@ -105,6 +118,14 @@ public class GameManager : MonoBehaviour
     public void Push_Weapon_Switch()
     {
         this._Weapon_Switch = true;
+    }
+
+    //ボタンを押した後自動的に戻す
+    private void Up_Weapon_Switch()
+    {
+        _Weapon_Switch = false;
+        _Shoot_Trigger = false;
+
     }
 
     //カメラ切り替えボタンを押しているかどうか

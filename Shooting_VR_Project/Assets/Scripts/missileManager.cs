@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class missileManager : MonoBehaviour
 {
+    static public missileManager instance;
+
     [SerializeField]
     private GameObject[] missiles_pack;
 
@@ -21,7 +23,9 @@ public class missileManager : MonoBehaviour
 
     private void Awake()
     {
-
+        if (instance == null)
+        { instance = this; }
+        DontDestroyOnLoad(gameObject);
     }
 
     // Start is called before the first frame update
