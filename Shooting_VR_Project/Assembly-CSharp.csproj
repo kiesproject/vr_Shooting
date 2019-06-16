@@ -71,8 +71,12 @@
     <Compile Include="Assets\Scripts\AirFighter.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
-    <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\Missile.cs" />
+    <Compile Include="Assets\Scripts\Missile_Bullet.cs" />
+    <Compile Include="Assets\Scripts\missileManager.cs" />
     <Compile Include="Assets\Scripts\PlayerBase.cs" />
+    <Compile Include="Assets\Scripts\PlayerControl.cs" />
+    <Compile Include="Assets\Scripts\target_marker.cs" />
     <None Include="Assets\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/yuga/Documents/Github/vr_Shooting/Shooting_VR_Project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

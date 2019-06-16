@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     
     public　static GameManager instance;
     public GameObject Player;
+    public List<GameObject> TargetEnemyList; 
 
     #region 変数群
 

@@ -8,32 +8,32 @@ using UnityEditor;
 public class Bullet : MonoBehaviour
 {
     [SerializeField, Tooltip("弾速")]
-    float speed = 10;
+    protected float speed = 10;
 
     //衝突するレイヤー
     //基本playerかenemyを選択する。
     [SerializeField, Tooltip("当たる物を指定する")]
-    private LayerMask layer = 0;
+    protected LayerMask layer = 0;
 
     [SerializeField, Tooltip("消滅時間")]
-    private float timer = 5;
+    protected float timer = 5;
 
     [SerializeField, Tooltip("ダメージ量")]
-    private float damege = 2;
+    protected float damege = 2;
 
     [SerializeField, Tooltip("爆発のオブジェクト")]
-    private GameObject explosion;
+    protected GameObject explosion;
 
-    private Rigidbody rig;
+    protected Rigidbody rig;
     private float time = 0;
 
     [SerializeField]
-    bool ally = false;
+    protected bool ally = false;
     [SerializeField]
-    bool enemy = false;
+    protected bool enemy = false;
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         //rigidbodyを取得する。
         rig = GetComponent<Rigidbody>();
@@ -41,14 +41,14 @@ public class Bullet : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         //時間の管理
         TimeKeeper(); ;
 
     }
 
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         //進むだけ
         Straight();
