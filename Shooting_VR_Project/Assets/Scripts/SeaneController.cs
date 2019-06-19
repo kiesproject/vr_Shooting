@@ -3,12 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 public class SeaneController : MonoBehaviour
 {
     public static SeaneController sceanController;
 
     //現在のシーンの配列のindex用
     static int nowSceanIndex = 0;
+
+    //テスト用にウェーブごとで一時停止する
+    [SerializeField]
+    bool testFlag = false;
+    [SerializeField]
+    string testText;
 
     //切り替えるためのシーンの名前（文字列）
     [SerializeField] string[] _sceneSequence;
@@ -26,7 +36,7 @@ public class SeaneController : MonoBehaviour
         //先頭のシーン以外はアンロード(1からスタート)
         for (int i = 1; i < _sceneSequence.Length; i++)
         {
-            SceneManager.UnloadScene(_sceneSequence[i]);
+            SceneManager.UnloadSceneAsync(_sceneSequence[i]);
         }
     }
 
@@ -40,11 +50,51 @@ public class SeaneController : MonoBehaviour
     //シーン切り替えメソッド(外部参照可)
     public void SwitchScean()
     {
-        if(nowSceanIndex != _sceneSequence.Length - 1)
+
+
+
+        if (nowSceanIndex != _sceneSequence.Length - 1)
         {
-            SceneManager.LoadSceneAsync(_sceneSequence[nowSceanIndex + 1],LoadSceneMode.Additive);
-            SceneManager.UnloadScene(_sceneSequence[nowSceanIndex]);
+#if UNITY_EDITOR
+            if (testFlag)
+            {
+                if (_sceneSequence[nowSceanIndex + 1] == testText && testText!=null)
+                {
+                    Scene_Load();
+                    EditorApplication.isPaused = true;
+                }
+                else
+                {
+                    Scene_Unload();
+                }
+                nowSceanIndex++;
+                return;
+            }
+#endif
+            Scene_Load();
+            Scene_Unload();
             nowSceanIndex++;
+
+            
         }
     }
+
+    void Scene_Load()
+    {
+        try
+        {
+            SceneManager.LoadSceneAsync(_sceneSequence[nowSceanIndex + 1], LoadSceneMode.Additive);
+        }
+        catch { Debug.Log("Scene Load Failed"); }
+    }
+
+    void Scene_Unload()
+    {
+        try
+        {
+            SceneManager.UnloadSceneAsync(_sceneSequence[nowSceanIndex]);
+        }
+        catch { Debug.Log("Scene UnLoad Failed"); }
+    }
+
 }

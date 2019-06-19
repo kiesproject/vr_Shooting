@@ -2,10 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+#if UNITY_EDITOR
+using UnityEditor;
+
+#endif
+
 public class SC_Gate : MonoBehaviour
 {
     SeaneController SC;
     bool flag = false;
+
+    [SerializeField, TextArea(3, 5)]
+    private string memo;
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +24,7 @@ public class SC_Gate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -30,10 +38,13 @@ public class SC_Gate : MonoBehaviour
         }
     }
 
-    void OnDrawGizmos()
+#if UNITY_EDITOR
+    [DrawGizmo(GizmoType.Active | GizmoType.NonSelected)]
+    static void DrawGateGizmos(SC_Gate sC_Gate, GizmoType gizmoType)
     {
-        Gizmos.color = new Color(1f, 1f, 1f, 0);
-        Gizmos.DrawSphere(transform.position, 1f);
-        //Gizmos.DrawWireCube(transform.position, transform.localScale);
+        Gizmos.color = new Color(0.8f, 0, 0.8f);
+        Gizmos.DrawWireCube(sC_Gate.transform.position, sC_Gate.transform.localScale);
     }
+#endif
+
 }
