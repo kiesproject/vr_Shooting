@@ -116,7 +116,7 @@ public class Bullet : MonoBehaviour
 
         public override void OnInspectorGUI()
         {
-            //base.OnInspectorGUI();
+            base.OnInspectorGUI();
             
             //上のクラスを取得
             Bullet bullet = target as Bullet;

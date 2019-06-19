@@ -7,7 +7,7 @@ public class Explosion_Controller : MonoBehaviour
     [SerializeField]
     float range = 5.0f;
     [SerializeField]
-    float damage = 5.0f;
+    float damage = 3.0f;
 
     protected LayerMask layer = 0;
 

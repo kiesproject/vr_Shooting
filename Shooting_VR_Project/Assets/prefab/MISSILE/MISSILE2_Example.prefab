@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5629591318654507850}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 2.01, y: 0, z: -33.4}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 7935691210666174683}
   m_Father: {fileID: 0}
@@ -184,12 +184,13 @@ MonoBehaviour:
   speed: 10
   layer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   timer: 5
-  damege: 2
-  explosion: {fileID: 1000011128802252, guid: 96730f8640590934eacb6f860058e7f9, type: 3}
+  damege: 6
+  explosion: {fileID: 7422320732940720425, guid: bbeefc31bcf33164f92098477f8038e1,
+    type: 3}
   ally: 0
-  enemy: 0
+  enemy: 1
   target: {fileID: 0}
 --- !u!1 &8430187899492900670
 GameObject:

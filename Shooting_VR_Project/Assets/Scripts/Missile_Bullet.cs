@@ -5,6 +5,8 @@ using UnityEngine;
 public class Missile_Bullet : Bullet
 {
     private float missile_timer = 0; //飛行している時間
+    private float mtime = 0;
+
     private float overtime = 0.5f; //直進する時間
     private bool chaserFlag = false; //
     private float addspeed = 0;
@@ -29,18 +31,26 @@ public class Missile_Bullet : Bullet
     protected override void FixedUpdate()
     {
         if (target == null) return;
+        Debug.Log(target);
 
-        addspeed += 0.001f;
-        missile_timer += Time.deltaTime * 0.1f + addspeed;//タイマー
-        if(missile_timer <= overtime * 0.1f)
+        if(missile_timer <= overtime )
         {
+            addspeed += 0.001f;
+            missile_timer += Time.deltaTime * 0.1f + addspeed;//タイマー
+
             transform.position += transform.forward; //直進
             return;
         }
-        ChaseStart_Target(); //追跡のための設定
-        //addspeed += 0.0001f;
+        else
+        {
+            if(mtime==0)
+                ChaseStart_Target(); //追跡のための設定
 
-        transform.position = GetPoint(poss1, poss2, poss3, poss4, missile_timer);
+            transform.LookAt(GetPoint(poss1, poss2, poss3, poss4, mtime + 0.0001f));
+            transform.position = GetPoint(poss1, poss2, poss3, poss4, mtime);
+            mtime += Time.deltaTime;
+        }
+        
     }
 
     void ChaseStart_Target()

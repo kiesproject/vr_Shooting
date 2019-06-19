@@ -9,7 +9,7 @@ using UnityEditorInternal;
 #endif
 
 
-public  class AirFighter : MonoBehaviour
+public abstract class AirFighter : MonoBehaviour
 {
     //プロパティ用のフラグ
     [Flags]
@@ -40,13 +40,15 @@ public  class AirFighter : MonoBehaviour
     //--- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
 
     //戦闘機のHP
+    [SerializeField]
     protected float hp = 10;
+    [SerializeField,]
     protected float max_hp = 10;
 
     //--- エディター用のフィールド --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
-    [HideInInspector] protected bool onGizmo = false;
-    [HideInInspector] protected bool onHandle = false;
-    [HideInInspector] protected Vector3 Edi_start_Poss;
+    [HideInInspector] public bool onGizmo = false;
+    [HideInInspector] public bool onHandle = false;
+    [HideInInspector] public Vector3 Edi_start_Poss;
     
     protected virtual void Start()
     {
@@ -76,7 +78,7 @@ public  class AirFighter : MonoBehaviour
     }
 
     //死亡
-    protected virtual void Shooting_down()
+     protected virtual void Shooting_down()
     {
         //HPがゼロになった時の処理
     }
@@ -103,12 +105,10 @@ public  class AirFighter : MonoBehaviour
 
         if ((property & Property.isFring) != Property.isFring) //飛ぶ命令を受けているかどうか
         {
-            Debug.Log("ルート");
+            //Debug.Log("ルート");
             property |= Property.isFring;
             First_Set_TargetList();
-            //Fly_AriFighter();
-            //StartCoroutine(Fly_AriFighter(Conversion_RouteList(target_vector3s))); //コルーチン
-            //StartCoroutine(Fly_AriFighter2(Conversion_RouteList(target_vector3s, transform.position))); //コルーチン
+            //Debug.Log("target_vector3s: " + target_vector3s[0]);
             StartCoroutine(Fly_AriFighter2(target_vector3s)); //コルーチン
 
             return;
@@ -118,14 +118,15 @@ public  class AirFighter : MonoBehaviour
     protected virtual IEnumerator Fly_AriFighter2(List<Vector3> RoutList)
     {
         Vector3 control_point; // 制御点
-        var list = new List<Vector3>(Route_List); //移動点のリスト
+        var list = new List<Vector3>(target_vector3s); //移動点のリスト
         list.Insert(0, transform.position);
         int count = list.Count;
 
         for (int i=0; i<count-1; i++)
         {
             control_point = GetControl_Point(list[0], list[1], transform.forward); //制御点を決定
-            Debug.DrawLine(list[0], list[1], Color.blue);
+            //Debug.DrawLine(list[0], list[1], Color.blue, 5.0f);
+            //Debug.Log("list[1]: " + list[1]);
             //EditorApplication.isPaused = true;
 
             float t = 0;
@@ -151,67 +152,17 @@ public  class AirFighter : MonoBehaviour
     {
         float con = 0.5f;
         float twoPoint_distance = Vector3.Distance(poss1, poss2);
-        //Debug.DrawLine(transform.position, transform.position + rotate, Color.red, 5.0f);
+        //Debug.DrawLine(transform.position, transform.position + con * twoPoint_distance * rotate, Color.red, 5.0f);
         //Debug.Log("forward:" + (rotate + transform.position));
         return transform.position + con * twoPoint_distance * rotate;
         
     }
 
-    //飛行メソッド
-    protected virtual IEnumerator Fly_AriFighter(List<Vector3> con_RoutList)
-    {
-        bool three_v3_Apply = true; //trueの時、firstv3の中身を更新させるフラグ
-
-        int index = 1; //アクセスする要素の先頭
-        float t = 0.0f;
-        Vector3[] firstv3 = new Vector3[3]; //ベジェ曲線に使う変数
-        List<Vector3> target_vector3s = con_RoutList;
-
-        while (true)
-        {
-
-            if (three_v3_Apply)
-            {
-                firstv3[0] = transform.position;
-                for (int i = 0; i < firstv3.Length - 1 ; i++) //リスト先頭３つを代入
-                {
-                    firstv3[i + index] = target_vector3s[i];
-                }
-                three_v3_Apply = false;
-                t = 0.0f;
-            }
-            //--- --- --- --- --- --- --- --- --- -- --- --- -- --- --- -- --- --- --- --- --- --- --- --- -- --- --- -- --- --- --    
-
-            if (t > 0.5 && target_vector3s.Count >= 3)
-            {
-                Debug.Log("hoge");
-                target_vector3s.RemoveAt(0); //0番目を除外する。
-                three_v3_Apply = true;
-            }
-
-
-            t += Time.deltaTime * airFighter_speed;
-            var point = GetMovePoint(firstv3[0], firstv3[1], firstv3[2], t); //ベジェ曲線
-            Debug.Log(firstv3[0]+"|"+firstv3[1]+"|"+ firstv3[2]);
-            transform.position = point; //移動
-            transform.LookAt(GetMovePoint(firstv3[0], firstv3[1], firstv3[2], t + 0.01f));
-
-
-
-            if (t > 1) break; //ループの脱出
-
-            yield return null;
-        }
-    }
-
-
     //飛び始める時にリストを用意する
     protected void First_Set_TargetList()
     {
-        target_vector3s = new List<Vector3>(); //生成
-        foreach(Vector3 v in Route_List)
-            //設定されている座標をすべてリストにいれる。
-            target_vector3s.Add(v);
+        target_vector3s = new List<Vector3>(Conversion_RouteList(Route_List, transform.position)); //生成
+
     }
 
     //ルートリストのローカル座標をワールド座標に置き換える(動き始める前に実行すること)
@@ -222,6 +173,7 @@ public  class AirFighter : MonoBehaviour
         foreach(Vector3 v in rl)
         {
             outList.Add(v + poss);
+            //Debug.Log("Clist"+(v + poss));
         }
         return outList;
     }
@@ -244,6 +196,7 @@ public  class AirFighter : MonoBehaviour
     {
         ReorderableList reorderableList;
         Vector3 snap;
+        protected AirFighter component;
 
         void OnEnable()
         {
@@ -293,10 +246,8 @@ public  class AirFighter : MonoBehaviour
         
         protected virtual void OnSceneGUI()
         {
-            
-
             //Tools.current = Tool.None;
-            var component = target as AirFighter;
+            SetComponent();
             var transform = component.transform;
             
             if (!component.onHandle) return; //ハンドルがオフになっている
@@ -310,22 +261,28 @@ public  class AirFighter : MonoBehaviour
             
         }
 
-        bool foldout = false;
+        public virtual void SetComponent()
+        {
+            component = target as AirFighter;
+        }
+
+        bool foldout = true;
 
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
-            var component = target as AirFighter;
-
+            SetComponent();
+            serializedObject.Update();
             component.onGizmo = EditorGUILayout.Toggle("ギズモを表示する", component.onGizmo);
             component.onHandle = EditorGUILayout.Toggle("ハンドルを表示する", component.onHandle);
 
-            if (foldout = EditorGUILayout.Foldout(foldout, "ルートの設定"))
-            {
-                serializedObject.Update();
-                reorderableList.DoLayoutList();
+            reorderableList.DoLayoutList();
+
+            if (GUILayout.Button("更新"))
                 serializedObject.ApplyModifiedProperties();
-            }
+            serializedObject.ApplyModifiedProperties();
+
+
         }
 
     }

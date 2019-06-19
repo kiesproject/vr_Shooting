@@ -13,6 +13,7 @@ public class PlayerControl : MonoBehaviour
     private float speed = 1.0f;
     [SerializeField]
     private GameObject PlayerModel;
+    
 
     private Vector3 headVector;
 
@@ -29,6 +30,7 @@ public class PlayerControl : MonoBehaviour
         //キー入力
         horizontal = GM.Horizontal;
         vertical = GM.Vertical;
+        
     }
 
     void FixedUpdate()
@@ -56,7 +58,7 @@ public class PlayerControl : MonoBehaviour
 
         //移動する
         transform.localPosition += moveVector * Time.deltaTime;
-        PlayerModel.transform.localPosition = transform.localPosition  -0.1f* Vector3.forward - 0.02f * moveVector;
+        PlayerModel.transform.localPosition = transform.localPosition  -0.04f* Vector3.forward - 0.02f * moveVector;
         PlayerModel.transform.LookAt(transform.position);
     }
 

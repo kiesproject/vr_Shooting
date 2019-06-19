@@ -69,7 +69,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4753576844416332915}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player_Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 633714404181853767}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.23}
+  m_LocalPosition: {x: 0, y: 0, z: 1.4}
   m_LocalScale: {x: 1, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 8982631860359077177}
@@ -269,6 +269,11 @@ MonoBehaviour:
   - {x: 10, y: 20, z: 90}
   - {x: 30, y: 20, z: 90}
   airFighter_speed: 0.3
+  hp: 10
+  max_hp: 10
+  onGizmo: 0
+  onHandle: 0
+  Edi_start_Poss: {x: 0, y: 0, z: 0}
 --- !u!1 &8982631859983737471
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,7 +368,7 @@ GameObject:
   - component: {fileID: 8982631860359077178}
   - component: {fileID: 8982631860359077182}
   - component: {fileID: 160804522}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -475,6 +480,11 @@ MonoBehaviour:
   property: 0
   Route_List: []
   airFighter_speed: 1
+  hp: 10
+  max_hp: 10
+  onGizmo: 0
+  onHandle: 0
+  Edi_start_Poss: {x: 0, y: 0, z: 0}
   bullet_N: {fileID: 1695403152, guid: 26ab10fff19538e4ca4283b768d88e8c, type: 3}
   muzzle: {fileID: 633714404181853767}
 --- !u!1 &8982631860916729178
@@ -567,7 +577,7 @@ GameObject:
   - component: {fileID: 8982631860933122001}
   - component: {fileID: 8982631860933122000}
   - component: {fileID: 8982631860933121999}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}

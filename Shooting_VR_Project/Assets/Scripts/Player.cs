@@ -15,15 +15,17 @@ public class Player : AirFighter
     float time = 0;
     bool shootNegativeFlag = false;
 
+    private void Awake()
+    {
+        GM = GameManager.instance;
+        GM.Player = this.gameObject;
+    }
 
     // Start is called before the first frame update
     protected override void Start()
     {
         max_hp = 40;
         hp = max_hp;
-
-        GM = GameManager.instance;
-
     }
 
     // Update is called once per frame

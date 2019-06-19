@@ -49,7 +49,7 @@ public class missileManager : MonoBehaviour
         if (GameManager.instance.TargetEnemyList.Count == 0)
             return;
 
-        Milist = GameManager.instance.TargetEnemyList;
+        Milist = new List<GameObject>(GameManager.instance.TargetEnemyList);
         for (int i=0; i < missiles_pack.Length; i++)
         {
             StartCoroutine(MissileLaunch(missiles_pack[i].transform));
@@ -60,6 +60,7 @@ public class missileManager : MonoBehaviour
     //ミサイル発射中
     private IEnumerator MissileLaunch(Transform BasePoss)
     {
+        Debug.Log("発射中");
         for(int x=0; x < Width; x++) //横
         {
             for(int y = 0; y < VerWidth; y++) //縦
@@ -71,6 +72,7 @@ public class missileManager : MonoBehaviour
                 //Missile missile_c = missile.GetComponent<Missile>();
                 //missile_c.Shoot(SelectMis(x + y));
                 Missile_Bullet missile_c = missile.GetComponent<Missile_Bullet>();
+                if (missile_c == null) Debug.Log("入ってない");
                 missile_c.SetTarget(SelectMis(x + y));
 
                 yield return new WaitForSeconds(0.1f);
