@@ -34,7 +34,7 @@ public class SeaneController : MonoBehaviour
     {
         //Debug.Log("nowSceanIndex " + nowSceanIndex);
         //テスト用にNキーでシーン切り替え
-        if (Input.GetKeyDown(KeyCode.N)) SwitchScean();
+        //if (Input.GetKeyDown(KeyCode.N)) SwitchScean();
     }
 
     //シーン切り替えメソッド(外部参照可)
