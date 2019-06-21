@@ -46,7 +46,7 @@ MonoBehaviour:
   missiles_pack:
   - {fileID: 0}
   - {fileID: 0}
-  missile: {fileID: 6336156798275143793, guid: 015f1233d661dd44e9dd16637754f0f2, type: 3}
+  missile: {fileID: 6840878133504490559, guid: 897c652076fd4484796fe493ac9aa1ca, type: 3}
   VerWidth: 5
   Width: 6
   Interval: 5

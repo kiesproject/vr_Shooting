@@ -12,12 +12,13 @@ public class target_marker : MonoBehaviour
 
     private void Awake()
     {
-        GM = GameManager.instance;
+        //GM = GameManager.instance;
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        GM = GameManager.instance;
         var t = this.transform.parent;
         while (true)
         {
@@ -34,8 +35,6 @@ public class target_marker : MonoBehaviour
                 break;
             }
         }
-
-
         //DontDestroyOnLoad(gameObject);
         //GameManager.instance.TargetEnemyList.Add(this.gameObject);
     }
@@ -43,6 +42,7 @@ public class target_marker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GM.Player == null) return;
         if (Vector3.Distance(transform.position, GM.Player.transform.position) <= dis)
         {
 
@@ -72,5 +72,9 @@ public class target_marker : MonoBehaviour
             visible = true;
         }
     }
-    
+
+    private void OnDestroy()
+    {
+        GM.TargetEnemyDead(target);
+    }
 }

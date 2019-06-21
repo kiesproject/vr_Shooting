@@ -8,3 +8,6 @@ sceneSetups:
 - path: Assets/Scenes/Stages/wave1.unity
   isLoaded: 1
   isActive: 0
+- path: Assets/Scenes/Stages/wave2.unity
+  isLoaded: 1
+  isActive: 0

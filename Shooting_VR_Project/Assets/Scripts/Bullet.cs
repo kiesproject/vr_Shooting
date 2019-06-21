@@ -55,14 +55,14 @@ public class Bullet : MonoBehaviour
     }
 
     //まっすぐ進む(update)
-    private void Straight()
+    protected virtual void Straight()
     {
         rig.velocity = transform.forward * speed;
         //transform.position += transform.forward * speed;
     }
 
     //弾消滅
-    private void TimeKeeper()
+    protected void TimeKeeper()
     {
         time += Time.deltaTime;
 
@@ -72,7 +72,7 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision c)
+    protected virtual void OnCollisionEnter(Collision c)
     {
         //当たった物が戦闘機
         if (c.gameObject.GetComponent<AirFighter>() != null)
@@ -86,12 +86,11 @@ public class Bullet : MonoBehaviour
                 fighter.Damage(damege);
             }
 
-
+            Explosion();
         }
-        Explosion();
     }
 
-    private void Explosion()
+    protected void Explosion()
     {
         if (explosion != null)
         { Instantiate(explosion, this.transform.position, this.transform.rotation); }
@@ -100,7 +99,7 @@ public class Bullet : MonoBehaviour
 
 
     //LayerMaskに対象のLayerが含まれているかチェックする
-    private bool CompareLayer(LayerMask layerMask, int layer)
+    protected bool CompareLayer(LayerMask layerMask, int layer)
     {
         return ((1 << layer) & layerMask) != 0;
     }

@@ -26,14 +26,16 @@ public class Missile_Bullet : Bullet
         base.Start();
     }
 
-    protected override void Update(){}
+    protected override void Update(){
+        base.Update();
+    }
 
     protected override void FixedUpdate()
     {
         if (target == null) return;
         Debug.Log(target);
 
-        if(missile_timer <= overtime )
+        if(missile_timer <= overtime ) //直進
         {
             addspeed += 0.001f;
             missile_timer += Time.deltaTime * 0.1f + addspeed;//タイマー
@@ -41,18 +43,30 @@ public class Missile_Bullet : Bullet
             transform.position += transform.forward; //直進
             return;
         }
-        else
+        else //追跡
         {
             if(mtime==0)
                 ChaseStart_Target(); //追跡のための設定
 
-            transform.LookAt(GetPoint(poss1, poss2, poss3, poss4, mtime + 0.0001f));
-            transform.position = GetPoint(poss1, poss2, poss3, poss4, mtime);
+            
+            try {
+                transform.LookAt(GetPoint(poss1, poss2, poss3, target.transform.position, mtime + 0.0001f));
+                transform.position = GetPoint(poss1, poss2, poss3, target.transform.position, mtime);
+            } catch {
+                target = null;
+                Explosion();
+            }
             mtime += Time.deltaTime;
+            if (mtime >= 1) //ターゲットまでたどり着いたらダメージを与える。
+            {
+                Damage();
+            }
+
         }
         
     }
 
+    //追跡処理の初期設定
     void ChaseStart_Target()
     {
         if (chaserFlag) return;
@@ -64,6 +78,8 @@ public class Missile_Bullet : Bullet
 
         chaserFlag = true;
     }
+
+    
 
     public void SetTarget(GameObject target)
     {
@@ -95,6 +111,21 @@ public class Missile_Bullet : Bullet
 
         return Vector3.Lerp(d, e, t);
 
+    }
+
+    //衝突判定は呼び出さないといけない？
+    void Damage()
+    {
+        var air = target.GetComponent<AirFighter>();
+        Debug.Log("ダメージ(missile)");
+        //ダメージを与える
+        air.Damage(damege);
+        Explosion();
+    }
+
+    private void OnDestroy()
+    {
+        target = null;
     }
 
 

@@ -159,4 +159,13 @@ public class GameManager : MonoBehaviour
     {
         _Weapon = num;
     }
+    
+    //敵からの死亡報告
+    public void TargetEnemyDead(GameObject o)
+    {
+        //リストから除く
+        if (TargetEnemyList.Contains(o))
+            TargetEnemyList.Remove(o);
+    }
+
 }

@@ -19,6 +19,7 @@ public class SeaneController : MonoBehaviour
     bool testFlag = false;
     [SerializeField]
     string testText;
+    GameObject PB; //
 
     //切り替えるためのシーンの名前（文字列）
     [SerializeField] string[] _sceneSequence;
@@ -38,6 +39,10 @@ public class SeaneController : MonoBehaviour
         {
             SceneManager.UnloadSceneAsync(_sceneSequence[i]);
         }
+
+        //デバッグ用
+        PB = GameObject.FindGameObjectWithTag("PlayerBase");
+
     }
 
     private void Update()
@@ -62,6 +67,7 @@ public class SeaneController : MonoBehaviour
                 {
                     Scene_Load();
                     EditorApplication.isPaused = true;
+                    PB.GetComponent<PlayerBase>().SetSpeed_forDebug(0.05f);
                 }
                 else
                 {

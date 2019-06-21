@@ -55,9 +55,9 @@ public class Normal_Enemy : AirFighter
             {
                 shootTime = 0;
                 muzzle.transform.LookAt(player.transform.position + new Vector3(
-                    Random.Range(-0.5f, 0.5f), 
-                    Random.Range(-0.5f, 0.5f), 
-                    Random.Range(-0.5f, 0.5f)));
+                    Random.Range(-0.6f, 0.6f), 
+                    Random.Range(-0.6f, 0.6f), 
+                    Random.Range(-0.6f, 0.6f)));
 
                 Instantiate(bullet, muzzle.transform.position, muzzle.transform.rotation);
                 return;

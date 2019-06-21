@@ -8,6 +8,8 @@ using UnityEditor;
 
 public class PlayerBase : AirFighter
 {
+    
+
     private GameManager GM;
     private float moveForceMultiplier = 20.0f;
     public Rigidbody rigidbody { private set; get; }
@@ -41,10 +43,10 @@ public class PlayerBase : AirFighter
 
     }
 
-    //
-    void DirectionSet()
+    //デバッグのみ使用可能
+    public void SetSpeed_forDebug(float a)
     {
-
+        airFighter_speed = a;
     }
 
     //操作移動するメソッド

@@ -15,6 +15,11 @@ public class Player : AirFighter
     float time = 0;
     bool shootNegativeFlag = false;
 
+    float debuffTime = 0; //バフに使用するタイマー
+    bool isDebuff = false;
+    float debuff_desmove_Per = 1;
+    float debuff_desshoot_Per = 1;
+
     private void Awake()
     {
         GM = GameManager.instance;
@@ -32,6 +37,7 @@ public class Player : AirFighter
     protected override void Update()
     {
         Input_Shoot();
+        Chack_Debuff();
     }
 
     //ショットの受付
@@ -56,7 +62,7 @@ public class Player : AirFighter
         if (shootNegativeFlag)
         {
             time += Time.deltaTime;
-            if (time > 0.3f)
+            if (time > 0.3f * debuff_desshoot_Per)
             {
                 time = 0;
                 shootNegativeFlag = false;
@@ -66,11 +72,39 @@ public class Player : AirFighter
     }
 
     //通常のショット発射する
-    void Normal_Shoot()
+    private void Normal_Shoot()
     {
         if (bullet_N == null) return;
         if (muzzle == null) return;
         GameObject bullet = Instantiate(bullet_N, muzzle.transform.position, muzzle.transform.rotation) as GameObject;
+    }
+
+    private void Chack_Debuff() //デバフの処理を行う
+    {
+        if (isDebuff)
+        {
+            debuffTime += Time.deltaTime;
+            debuff_desmove_Per = 0.8f; //移動割合
+            debuff_desshoot_Per = 0.5f; //ショット感覚割合
+
+            if (debuffTime >= 3f)
+            {
+                isDebuff = false;
+            }
+        }
+        else
+        {
+            debuffTime = 0;
+            debuff_desmove_Per = 1;
+            debuff_desshoot_Per = 1;
+        }
+
+    }
+
+    public void Set_Debuff()
+    {
+        isDebuff = true;
+        debuffTime = 0;
     }
 
 }
