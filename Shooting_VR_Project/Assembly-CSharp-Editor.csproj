@@ -329,6 +329,9 @@
     <Reference Include="UnityEditor.Purchasing">
       <HintPath>C:/Users/yuga/Documents/Github/vr_Shooting/Shooting_VR_Project/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
     </Reference>
+    <Reference Include="Valve.Newtonsoft.Json">
+      <HintPath>C:/Users/yuga/Documents/Github/vr_Shooting/Shooting_VR_Project/Assets/SteamVR/Input/Plugins/JSON.NET/Valve.Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.2f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
     </Reference>
@@ -688,6 +691,22 @@
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{A10E1CBE-694F-56ED-2101-B3CA87977585}</Project>
       <Name>Assembly-CSharp</Name>
+    </ProjectReference>
+    <ProjectReference Include="SteamVR_Input_Editor.csproj">
+      <Project>{3C6C308F-0480-0259-84AC-658BF469C432}</Project>
+      <Name>SteamVR_Input_Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="SteamVR_Editor.csproj">
+      <Project>{EBFCD6B7-EF01-C52D-351B-F2597FB4C3A2}</Project>
+      <Name>SteamVR_Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="SteamVR.csproj">
+      <Project>{DE9374B4-52B9-E2C1-5BF0-6BBBDA315E6A}</Project>
+      <Name>SteamVR</Name>
+    </ProjectReference>
+    <ProjectReference Include="SteamVR_Windows_EditorHelper.csproj">
+      <Project>{D7D3498A-B77F-76A6-5F34-F532187A4CB4}</Project>
+      <Name>SteamVR_Windows_EditorHelper</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

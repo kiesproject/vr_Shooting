@@ -67,7 +67,7 @@ public class SeaneController : MonoBehaviour
                 {
                     Scene_Load();
                     EditorApplication.isPaused = true;
-                    PB.GetComponent<PlayerBase>().SetSpeed_forDebug(0.05f);
+                    PB.GetComponent<PlayerBase>().SetSpeed_forDebug(0.1f);
                 }
                 else
                 {

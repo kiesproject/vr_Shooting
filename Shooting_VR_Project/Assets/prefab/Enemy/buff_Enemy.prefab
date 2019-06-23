@@ -39,10 +39,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9203452109392284171}
+  - component: {fileID: 2220293846116732688}
   - component: {fileID: 5147314926009794889}
   - component: {fileID: 8735131775259858159}
   - component: {fileID: 1347848208102618331}
-  - component: {fileID: 2220293846116732688}
   m_Layer: 10
   m_Name: buff_Enemy
   m_TagString: Untagged
@@ -66,6 +66,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2220293846116732688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6808827771097067810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b760fe56f3bf080459cf358e8f31e010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  property: 0
+  Route_List: []
+  airFighter_speed: 1
+  hp: 10
+  max_hp: 10
+  onGizmo: 0
+  onHandle: 0
+  Edi_start_Poss: {x: 0, y: 0, z: 0}
+  muzzle: {fileID: 5475728618888215330}
+  explosion: {fileID: 8786907121785351740, guid: 546dbf982c995d54ab9c65113121daf6,
+    type: 3}
+  bullet: {fileID: 4401207485409072365, guid: cebe66b0bdcf9d842ac88428373746a4, type: 3}
 --- !u!65 &5147314926009794889
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -132,30 +156,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &2220293846116732688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6808827771097067810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b760fe56f3bf080459cf358e8f31e010, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  property: 0
-  Route_List: []
-  airFighter_speed: 1
-  hp: 10
-  max_hp: 10
-  onGizmo: 0
-  onHandle: 0
-  Edi_start_Poss: {x: 0, y: 0, z: 0}
-  muzzle: {fileID: 5475728618888215330}
-  explosion: {fileID: 8786907121785351740, guid: 546dbf982c995d54ab9c65113121daf6,
-    type: 3}
-  bullet: {fileID: 4401207485409072365, guid: cebe66b0bdcf9d842ac88428373746a4, type: 3}
 --- !u!1001 &7404448951236006512
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -213,15 +213,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4909827253145198, guid: f96918fb8cc490a479d199b2a44b84e6, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4909827253145198, guid: f96918fb8cc490a479d199b2a44b84e6, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4909827253145198, guid: f96918fb8cc490a479d199b2a44b84e6, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f96918fb8cc490a479d199b2a44b84e6, type: 3}
