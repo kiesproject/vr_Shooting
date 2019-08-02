@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR;
 
 public class Player : AirFighter
 {
@@ -10,7 +11,9 @@ public class Player : AirFighter
     GameObject bullet_N; //標準装備の弾丸
 
     [SerializeField]
-    GameObject muzzle;
+    GameObject muzzle1;
+    [SerializeField]
+    GameObject muzzle2;
 
     float time = 0;
     bool shootNegativeFlag = false;
@@ -19,6 +22,8 @@ public class Player : AirFighter
     bool isDebuff = false;
     float debuff_desmove_Per = 1;
     float debuff_desshoot_Per = 1;
+
+    private SteamVR_Action_Boolean Action_Boolean = SteamVR_Actions._default.GrabPinch;
 
     private void Awake()
     {
@@ -43,7 +48,11 @@ public class Player : AirFighter
     //ショットの受付
     void Input_Shoot()
     {
-        if (GM.Shoot_Trigger && !shootNegativeFlag)
+
+
+        Debug.Log("GM.Shoot_Trigger: " + GM.Shoot_Trigger);
+        //Debug.Log("shootNegativeFlag: " + shootNegativeFlag);
+        if (GM.Shoot_Trigger  && !shootNegativeFlag)
         {
             switch (GM.Weapon)
             {
@@ -52,11 +61,18 @@ public class Player : AirFighter
                     shootNegativeFlag = true;
                     break;
                 case 1:
+                    GM.Push_Missile();
+                    shootNegativeFlag = true;
+                    //GameManager.instance.Missile_Trigger = false;
 
                     break;
                 default:
                     break;
             }
+        }
+        else
+        {
+            GameManager.instance.Missile_Trigger = false;
         }
         
         if (shootNegativeFlag)
@@ -75,8 +91,11 @@ public class Player : AirFighter
     private void Normal_Shoot()
     {
         if (bullet_N == null) return;
-        if (muzzle == null) return;
-        GameObject bullet = Instantiate(bullet_N, muzzle.transform.position, muzzle.transform.rotation) as GameObject;
+        if (muzzle1 == null) return;
+
+        GameObject bullet1 = Instantiate(bullet_N, muzzle1.transform.position, muzzle1.transform.rotation) as GameObject;
+        GameObject bullet2 = Instantiate(bullet_N, muzzle2.transform.position, muzzle1.transform.rotation) as GameObject;
+
     }
 
     private void Chack_Debuff() //デバフの処理を行う

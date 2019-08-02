@@ -32,11 +32,17 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     protected bool enemy = false;
 
+    [SerializeField]
+    float picth = 1;
+    [SerializeField]
+    string fileName = "enemy_shoot";
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
         //rigidbodyを取得する。
         rig = GetComponent<Rigidbody>();
+        SoundManager.instance.Instance_Sound(transform.position, fileName,picth);
 
     }
 

@@ -14,6 +14,8 @@ public class Explosion_Controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SoundManager.instance.Instance_Sound(transform.position, "explosion1", 1);
+
         layer = layer | (1 << LayerMask.NameToLayer("Enemy"));
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, range);

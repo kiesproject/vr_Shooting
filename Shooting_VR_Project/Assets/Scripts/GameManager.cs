@@ -5,12 +5,12 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     
-    public　static GameManager instance;
+    public static GameManager instance;
     public GameObject Player;
     public List<GameObject> TargetEnemyList;
 
     [SerializeField]
-    private bool VR_Swicth = false;
+    public bool VR_Swicth = false;
 
     #region 変数群
 
@@ -23,7 +23,13 @@ public class GameManager : MonoBehaviour
     private float _Vertical;
 
     //===発射トリガー===
-    private bool _Shoot_Trigger;
+    [HideInInspector]
+    public bool Shoot_Trigger = false;
+
+    //===ミサイル発射トリガー===
+    [HideInInspector]
+    public bool Missile_Trigger = false;
+    
 
     //===切り替えボタン===
     private bool _Weapon_Switch;
@@ -52,10 +58,8 @@ public class GameManager : MonoBehaviour
     }
 
     //発射トリガー読み取り専用
-    public bool Shoot_Trigger
-    {
-        get { return _Shoot_Trigger; }
-    }
+    //public bool Shoot_Trigger
+    
 
     //武器switch
     public bool Weapon_Switch
@@ -77,12 +81,33 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+    [HideInInspector] public int downCount = 0; //撃墜した数
+    [HideInInspector] public int enemyCounter = 0; //敵の数
+
+    //ゲームの遷移状態
+    public int GameState = 0;
+
+    public void Enemy_Count()
+    {
+        enemyCounter++;
+    }
+
+    public void Enemy_Down_Count()
+    {
+        downCount++;
+    }
+
+
     //一番最初に実行
     private void Awake()
     {
         //ゲームマネージャーにアクセス出来るようにする。
         if (instance == null)
         { instance = this; }
+        else
+        {
+            Destroy(this.gameObject);
+        }
         DontDestroyOnLoad(gameObject);
     }
 
@@ -96,20 +121,38 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!VR_Swicth)
+
+        Debug.Log("Trigger_missile: " + Missile_Trigger);
+        
         {
             //自動で戻す奴
             Up_Weapon_Switch();
-            var x = Input.GetAxis("Horizontal");
-            var y = Input.GetAxis("Vertical");
+            if (!VR_Swicth)
+            {
+                var x = Input.GetAxis("Horizontal");
+                var y = Input.GetAxis("Vertical");
 
-            Move_key(x, y);
+                Move_key(x, y);
+            }
 
             if (Input.GetKey(KeyCode.V))
-            {
-                Push_Trigger(); //ショットを発射
+            { 
+                Shoot_Trigger = true; //ショットを発射
+                Debug.Log("発射よ！！");
             }
+            else
+            {
+                Shoot_Trigger = false;
+            }
+
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                Push_Weapon_Switch();
+            }
+
         }
+
+        Debug.Log(Weapon_Switch);
     }
 
     //--------------------入力-----------------------
@@ -117,14 +160,24 @@ public class GameManager : MonoBehaviour
     //武器切り替えボタンを押した
     public void Push_Weapon_Switch()
     {
-        this._Weapon_Switch = true;
+        this._Weapon_Switch = !_Weapon_Switch;
+        if (!Weapon_Switch)
+        {
+            _Weapon = 0;
+        }
+        else
+        {
+            _Weapon = 1;
+        }
+
     }
 
     //ボタンを押した後自動的に戻す
     private void Up_Weapon_Switch()
     {
-        _Weapon_Switch = false;
-        _Shoot_Trigger = false;
+        //_Weapon_Switch = false;
+        //_Shoot_Trigger = false;
+        //Missile_Trigger = false;
 
     }
 
@@ -144,8 +197,15 @@ public class GameManager : MonoBehaviour
     //ショットを撃つ
     public void Push_Trigger()
     {
-        this._Shoot_Trigger = true;
+        this.Shoot_Trigger = true;
     }
+
+    //ミサイルを打つ
+    public void Push_Missile()
+    {
+        this.Missile_Trigger = true;
+    }
+
 
     //移動の入力状況を設定する。
     public void Move_key(float x, float y)

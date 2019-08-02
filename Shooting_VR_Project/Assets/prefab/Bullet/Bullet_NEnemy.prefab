@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 447554eaa651078489df1121fb6c618e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 20
   layer:
     serializedVersion: 2
     m_Bits: 512
@@ -78,6 +78,8 @@ MonoBehaviour:
     type: 3}
   ally: 1
   enemy: 0
+  picth: 1
+  fileName: enemy_shoot
 --- !u!54 &1080997185278009413
 Rigidbody:
   m_ObjectHideFlags: 0

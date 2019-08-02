@@ -34,6 +34,10 @@ public class SeaneController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        nowSceanIndex = 0;
+
+        SceneLoad();
+
         //先頭のシーン以外はアンロード(1からスタート)
         for (int i = 1; i < _sceneSequence.Length; i++)
         {
@@ -52,6 +56,16 @@ public class SeaneController : MonoBehaviour
         //if (Input.GetKeyDown(KeyCode.N)) SwitchScean();
     }
 
+    public void SceneLoad()
+    {
+        try
+        {
+            SceneManager.LoadSceneAsync(_sceneSequence[nowSceanIndex], LoadSceneMode.Additive);
+        }
+        catch { Debug.Log("Scene Load Failed"); }
+    }
+
+
     //シーン切り替えメソッド(外部参照可)
     public void SwitchScean()
     {
@@ -67,7 +81,9 @@ public class SeaneController : MonoBehaviour
                 {
                     Scene_Load();
                     EditorApplication.isPaused = true;
-                    PB.GetComponent<PlayerBase>().SetSpeed_forDebug(0.1f);
+                    if (PB == null)
+                        Debug.Log("sore");
+                    PB.GetComponent<PlayerBase>().SetSpeed_forDebug(0.25f);
                 }
                 else
                 {

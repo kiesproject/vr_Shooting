@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class PlayerControl : MonoBehaviour
     private float horizontal;
     private float vertical;
     private PlayerBase playerBase;
+    private SteamVR_Action_Pose VR_Action_Pose = SteamVR_Actions._default.Pose;
 
     [SerializeField]
     private float speed = 1.0f;
@@ -30,6 +32,8 @@ public class PlayerControl : MonoBehaviour
         //キー入力
         horizontal = GM.Horizontal;
         vertical = GM.Vertical;
+
+        //Debug.Log("hor: "+horizontal+" ver"+vertical);
         
     }
 
@@ -47,19 +51,19 @@ public class PlayerControl : MonoBehaviour
         Vector3 moveVector = Vector3.zero;
         float dx, dy;
         LimitMove(out dx, out dy);
-        //dx = 0; dy = 0;
-        //Debug.Log("dx:"+dx+" dy:"+dy);
-        //dy = 0;
 
         //入力情報を設定
         moveVector = (Vector3.right - (dx * Vector3.right)) * speed * horizontal + (Vector3.up - (dy * Vector3.up)) * speed * vertical;
 
-        //Debug.Log("moveVector:" + moveVector);
-
         //移動する
         transform.localPosition += moveVector * Time.deltaTime;
-        PlayerModel.transform.localPosition = transform.localPosition  -0.04f* Vector3.forward - 0.02f * moveVector;
+        PlayerModel.transform.localPosition = transform.localPosition  -0.04f* Vector3.forward - 0.03f * moveVector;
         PlayerModel.transform.LookAt(transform.position);
+
+
+        PlayerModel.transform.localRotation = Quaternion.Euler(new Vector3(-40 * vertical, 40 * horizontal, -40 * horizontal));
+        //PlayerModel.transform.localRotation = Quaternion.Euler(new Vector3(20 * vertical, 0, 0));
+        //PlayerModel.transform.localRotation = (VR_Action_Pose.GetLocalRotation(SteamVR_Input_Sources.RightHand));
     }
 
     //本体を回す

@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6456979445632520410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 466053869703820700}
+  - component: {fileID: 5029357360641599695}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &466053869703820700
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6456979445632520410}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.745099, y: 12.374984, z: 477.61746}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5029357360641599695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6456979445632520410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68917ae6814d2fb488d4ff70cc04958d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audios:
+  - {fileID: 8300000, guid: 119e148860aaa1242b4259ec9cec109c, type: 3}
+  - {fileID: 8300000, guid: ef3480a0146a8a7419431d6519f8e4b2, type: 3}
+  - {fileID: 8300000, guid: a01b09ba30a5e9e45b16588a1f6fecaa, type: 3}
+  - {fileID: 8300000, guid: 02631ac04697dd041ae4cb3f29790e3b, type: 3}
+  - {fileID: 8300000, guid: fa0e5039921617044927e351479824e4, type: 3}
+  - {fileID: 8300000, guid: d778ec150219194428c59d1a6a2fcb8d, type: 3}
+  - {fileID: 8300000, guid: c6c817a6a58d9f244bde0cab32c84673, type: 3}
+  - {fileID: 8300000, guid: 4cb9bf0e352140144ad3e13d7f09b0d4, type: 3}
+  filename:
+  - shoot
+  - missile
+  - missile1
+  - enemy_shoot
+  - beam
+  - explosion1
+  - explosion2
+  - chain_explosion
+  soundObject: {fileID: 4133181281530881375, guid: c54ce9139ff1fb24da3c5355dec792fe,
+    type: 3}

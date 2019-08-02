@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.5963616, g: 0.59887326, b: 0.5958139, a: 1}
+  m_IndirectSpecularColor: {r: 0.46407077, g: 0.4638435, b: 0.59642315, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -262,7 +262,7 @@ PrefabInstance:
     - target: {fileID: 8448001579281319661, guid: 9c9d1bd0a772d2a48b7d682fa88e8556,
         type: 3}
       propertyPath: airFighter_speed
-      value: 0.2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8448001579281319661, guid: 9c9d1bd0a772d2a48b7d682fa88e8556,
         type: 3}
@@ -456,7 +456,7 @@ PrefabInstance:
     - target: {fileID: 8448001579281319661, guid: 9c9d1bd0a772d2a48b7d682fa88e8556,
         type: 3}
       propertyPath: airFighter_speed
-      value: 0.2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8448001579281319661, guid: 9c9d1bd0a772d2a48b7d682fa88e8556,
         type: 3}
@@ -650,7 +650,7 @@ PrefabInstance:
     - target: {fileID: 8448001579281319661, guid: 9c9d1bd0a772d2a48b7d682fa88e8556,
         type: 3}
       propertyPath: airFighter_speed
-      value: 0.1
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c9d1bd0a772d2a48b7d682fa88e8556, type: 3}
@@ -674,12 +674,12 @@ PrefabInstance:
     - target: {fileID: 223482914793757283, guid: 9c9d1bd0a772d2a48b7d682fa88e8556,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.3
+      value: -2.9
       objectReference: {fileID: 0}
     - target: {fileID: 223482914793757283, guid: 9c9d1bd0a772d2a48b7d682fa88e8556,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.70000005
       objectReference: {fileID: 0}
     - target: {fileID: 223482914793757283, guid: 9c9d1bd0a772d2a48b7d682fa88e8556,
         type: 3}
@@ -769,7 +769,7 @@ PrefabInstance:
     - target: {fileID: 8448001579281319661, guid: 9c9d1bd0a772d2a48b7d682fa88e8556,
         type: 3}
       propertyPath: airFighter_speed
-      value: 0.04
+      value: 0.02
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c9d1bd0a772d2a48b7d682fa88e8556, type: 3}
@@ -923,7 +923,7 @@ PrefabInstance:
     - target: {fileID: 8448001579281319661, guid: 9c9d1bd0a772d2a48b7d682fa88e8556,
         type: 3}
       propertyPath: airFighter_speed
-      value: 0.1
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c9d1bd0a772d2a48b7d682fa88e8556, type: 3}
@@ -1077,7 +1077,7 @@ PrefabInstance:
     - target: {fileID: 8448001579281319661, guid: 9c9d1bd0a772d2a48b7d682fa88e8556,
         type: 3}
       propertyPath: airFighter_speed
-      value: 0.1
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c9d1bd0a772d2a48b7d682fa88e8556, type: 3}
@@ -1231,7 +1231,7 @@ PrefabInstance:
     - target: {fileID: 8448001579281319661, guid: 9c9d1bd0a772d2a48b7d682fa88e8556,
         type: 3}
       propertyPath: airFighter_speed
-      value: 0.2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8448001579281319661, guid: 9c9d1bd0a772d2a48b7d682fa88e8556,
         type: 3}
@@ -1286,6 +1286,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: buff_Enemy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6808827771097067810, guid: f800e604c36f9b34c9540651a18cc12b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9203452109392284171, guid: f800e604c36f9b34c9540651a18cc12b,
         type: 3}
@@ -1395,7 +1400,7 @@ PrefabInstance:
     - target: {fileID: 2220293846116732688, guid: f800e604c36f9b34c9540651a18cc12b,
         type: 3}
       propertyPath: airFighter_speed
-      value: 0.1
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f800e604c36f9b34c9540651a18cc12b, type: 3}
@@ -1424,7 +1429,7 @@ PrefabInstance:
     - target: {fileID: 223482914793757283, guid: 9c9d1bd0a772d2a48b7d682fa88e8556,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.70000005
       objectReference: {fileID: 0}
     - target: {fileID: 223482914793757283, guid: 9c9d1bd0a772d2a48b7d682fa88e8556,
         type: 3}
@@ -1514,7 +1519,7 @@ PrefabInstance:
     - target: {fileID: 8448001579281319661, guid: 9c9d1bd0a772d2a48b7d682fa88e8556,
         type: 3}
       propertyPath: airFighter_speed
-      value: 0.04
+      value: 0.02
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c9d1bd0a772d2a48b7d682fa88e8556, type: 3}
@@ -1538,12 +1543,12 @@ PrefabInstance:
     - target: {fileID: 223482914793757283, guid: 9c9d1bd0a772d2a48b7d682fa88e8556,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.63
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 223482914793757283, guid: 9c9d1bd0a772d2a48b7d682fa88e8556,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.7
       objectReference: {fileID: 0}
     - target: {fileID: 223482914793757283, guid: 9c9d1bd0a772d2a48b7d682fa88e8556,
         type: 3}
@@ -1608,12 +1613,12 @@ PrefabInstance:
     - target: {fileID: 8448001579281319661, guid: 9c9d1bd0a772d2a48b7d682fa88e8556,
         type: 3}
       propertyPath: onGizmo
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8448001579281319661, guid: 9c9d1bd0a772d2a48b7d682fa88e8556,
         type: 3}
       propertyPath: onHandle
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8448001579281319661, guid: 9c9d1bd0a772d2a48b7d682fa88e8556,
         type: 3}
@@ -1623,7 +1628,7 @@ PrefabInstance:
     - target: {fileID: 8448001579281319661, guid: 9c9d1bd0a772d2a48b7d682fa88e8556,
         type: 3}
       propertyPath: Route_List.Array.data[0].x
-      value: -5.603462
+      value: -2.6753511
       objectReference: {fileID: 0}
     - target: {fileID: 8448001579281319661, guid: 9c9d1bd0a772d2a48b7d682fa88e8556,
         type: 3}
@@ -1633,7 +1638,12 @@ PrefabInstance:
     - target: {fileID: 8448001579281319661, guid: 9c9d1bd0a772d2a48b7d682fa88e8556,
         type: 3}
       propertyPath: airFighter_speed
-      value: 0.04
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 8448001579281319661, guid: 9c9d1bd0a772d2a48b7d682fa88e8556,
+        type: 3}
+      propertyPath: Route_List.Array.data[2].y
+      value: -1.5150604
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c9d1bd0a772d2a48b7d682fa88e8556, type: 3}
@@ -1648,6 +1658,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: buff_Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6808827771097067810, guid: f800e604c36f9b34c9540651a18cc12b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9203452109392284171, guid: f800e604c36f9b34c9540651a18cc12b,
         type: 3}
@@ -1757,7 +1772,7 @@ PrefabInstance:
     - target: {fileID: 2220293846116732688, guid: f800e604c36f9b34c9540651a18cc12b,
         type: 3}
       propertyPath: airFighter_speed
-      value: 0.1
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f800e604c36f9b34c9540651a18cc12b, type: 3}

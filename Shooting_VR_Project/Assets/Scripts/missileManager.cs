@@ -1,9 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class missileManager : MonoBehaviour
 {
+    public Image MGage;
+    public GameObject Rimage;
+    public GameObject Nimage;
+
+    public float maxMissile = 100;
+    public float currentMissile = 100;
+    bool flag = false;
+
     static public missileManager instance;
 
     [SerializeField]
@@ -31,15 +40,49 @@ public class missileManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        MGage = GameObject.Find("Mgage").GetComponent<Image>();
+        Rimage = GameObject.FindGameObjectWithTag("redry_img");
+        Nimage = GameObject.FindGameObjectWithTag("NChr_img");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B))
+        if (!flag)
         {
+            MGage.fillAmount += 0.1f * Time.deltaTime;
+            MGage.color = new Color(1.0f, 0.0f, 0.0f);
+        }
+        else
+        {
+            MGage.fillAmount -= 0.5f * Time.deltaTime;
+        }
+        if (MGage.fillAmount <= 0 && flag)
+        {
+            flag = false;
+        }
+
+        if (MGage.fillAmount > 0.999f)
+        {
+            MGage.color = new Color(0.4f, 1.0f, 0.4f);
+            Rimage.SetActive(true);
+            Nimage.SetActive(false);
+        }
+        else
+        {
+            Rimage.SetActive(false);
+            Nimage.SetActive(true);
+        }
+
+        if (GameManager.instance.TargetEnemyList.Count == 0) return;
+
+        //if (Input.GetKeyDown(KeyCode.B) && !flag && MGage.fillAmount > 1 / maxMissile * 99)
+        if (GameManager.instance.Missile_Trigger && !flag && MGage.fillAmount > 1 / maxMissile * 99)
+            {
+            flag = true;
+            MGage.color = new Color(1.0f, 0.0f, 0.0f);
             MissileLaunchStart();
+            //GameManager.instance.Missile_Trigger = false;
         }
     }
 
@@ -60,7 +103,7 @@ public class missileManager : MonoBehaviour
     //ミサイル発射中
     private IEnumerator MissileLaunch(Transform BasePoss)
     {
-        Debug.Log("発射中");
+        //Debug.Log("発射中");
         for(int x=0; x < Width; x++) //横
         {
             for(int y = 0; y < VerWidth; y++) //縦

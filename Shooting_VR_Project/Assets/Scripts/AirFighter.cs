@@ -45,6 +45,15 @@ public abstract class AirFighter : MonoBehaviour
     [SerializeField,]
     protected float max_hp = 10;
 
+    public float Get_Hp()
+    {
+        return this.hp;
+    }
+    public float Get_Max_Hp()
+    {
+        return this.max_hp;
+    }
+
     //--- エディター用のフィールド --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --
     [HideInInspector] public bool onGizmo = false;
     [HideInInspector] public bool onHandle = false;
@@ -74,6 +83,7 @@ public abstract class AirFighter : MonoBehaviour
         {
             hp = 0;
             Shooting_down();
+            GameManager.instance.Enemy_Down_Count();
         }
     }
 

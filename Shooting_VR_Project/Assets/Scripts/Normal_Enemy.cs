@@ -28,9 +28,10 @@ public class Normal_Enemy : AirFighter
     protected override void Start()
     {
         base.Start();
-        max_hp = 8;
+        max_hp = 6;
         hp = max_hp;
 
+        GameManager.instance.Enemy_Count();
         player = GameManager.instance.Player;
         Launch_AriFighter();
     }
@@ -42,7 +43,7 @@ public class Normal_Enemy : AirFighter
 
         
 
-        if(Distance_Player() < 7)
+        if(Distance_Player() < 10)
         {
             if (shootTime == 0)
             {
@@ -75,6 +76,7 @@ public class Normal_Enemy : AirFighter
     protected override void Shooting_down()
     {
         base.Shooting_down();
+        GameManager.instance.Enemy_Down_Count();
         Instantiate(explosion, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
 
@@ -82,7 +84,7 @@ public class Normal_Enemy : AirFighter
 
     void Shoot()
     {
-        if (Distance_Player() < 7)
+        if (Distance_Player() < 10)
         {
             shootTime += Time.deltaTime;
             if (shootTime > 1)
