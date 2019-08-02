@@ -1,0 +1,177 @@
+fileFormatVersion: 2
+guid: 918cac38664534848844043c48d312c3
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: button1_o
+    100002: button2_o
+    100004: button3_o
+    100006: button4_o
+    100008: button5_o
+    100010: button_g
+    100012: chair_o
+    100014: //RootNode
+    100016: floor_o
+    100018: inside_g
+    100020: mainMachine_g
+    100022: mainMachine_o
+    100024: mainMonitor_o
+    100026: outside_g
+    100028: powerButton_o
+    100030: subMachine_g
+    100032: subMachine_o
+    100034: subMonitor_o
+    100036: wallBack_o
+    100038: wallFront_o
+    400000: button1_o
+    400002: button2_o
+    400004: button3_o
+    400006: button4_o
+    400008: button5_o
+    400010: button_g
+    400012: chair_o
+    400014: //RootNode
+    400016: floor_o
+    400018: inside_g
+    400020: mainMachine_g
+    400022: mainMachine_o
+    400024: mainMonitor_o
+    400026: outside_g
+    400028: powerButton_o
+    400030: subMachine_g
+    400032: subMachine_o
+    400034: subMonitor_o
+    400036: wallBack_o
+    400038: wallFront_o
+    2100000: outside_m
+    2100002: chair_m
+    2100004: subMachine_m
+    2100006: mainMachine_m
+    2300000: button1_o
+    2300002: button2_o
+    2300004: button3_o
+    2300006: button4_o
+    2300008: button5_o
+    2300010: chair_o
+    2300012: floor_o
+    2300014: mainMachine_o
+    2300016: mainMonitor_o
+    2300018: powerButton_o
+    2300020: subMachine_o
+    2300022: subMonitor_o
+    2300024: wallBack_o
+    2300026: wallFront_o
+    3300000: button1_o
+    3300002: button2_o
+    3300004: button3_o
+    3300006: button4_o
+    3300008: button5_o
+    3300010: chair_o
+    3300012: floor_o
+    3300014: mainMachine_o
+    3300016: mainMonitor_o
+    3300018: powerButton_o
+    3300020: subMachine_o
+    3300022: subMonitor_o
+    3300024: wallBack_o
+    3300026: wallFront_o
+    4300000: wallBack_o
+    4300002: floor_o
+    4300004: wallFront_o
+    4300006: chair_o
+    4300008: subMonitor_o
+    4300010: subMachine_o
+    4300012: button1_o
+    4300014: button2_o
+    4300016: button3_o
+    4300018: button4_o
+    4300020: button5_o
+    4300022: powerButton_o
+    4300024: mainMonitor_o
+    4300026: mainMachine_o
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
