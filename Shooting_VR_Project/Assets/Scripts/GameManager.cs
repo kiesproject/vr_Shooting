@@ -83,6 +83,7 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector] public int downCount = 0; //撃墜した数
     [HideInInspector] public int enemyCounter = 0; //敵の数
+    [HideInInspector] public int pointCounter = 0; //獲得ポイント
 
     //ゲームの遷移状態
     public int GameState = 0;
@@ -95,6 +96,11 @@ public class GameManager : MonoBehaviour
     public void Enemy_Down_Count()
     {
         downCount++;
+    }
+
+    public void Down_GetPoint(int point)
+    {
+        pointCounter += point;
     }
 
 

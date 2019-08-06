@@ -34,6 +34,9 @@ public abstract class AirFighter : MonoBehaviour
     [SerializeField]
     protected float airFighter_speed = 1.0f;
 
+    [SerializeField]
+    public int getPoint = 1;
+
     //目標座標
     protected List<Vector3> target_vector3s;
 
@@ -83,7 +86,7 @@ public abstract class AirFighter : MonoBehaviour
         {
             hp = 0;
             Shooting_down();
-            GameManager.instance.Enemy_Down_Count();
+            GameManager.instance.Down_GetPoint(getPoint);
         }
     }
 
