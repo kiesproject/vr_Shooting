@@ -116,7 +116,7 @@ MonoBehaviour:
   m_MinSize: {x: 917, y: 448}
   m_MaxSize: {x: 22012, y: 10024}
   vertical: 0
-  controlID: 177
+  controlID: 29
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 448}
   m_MaxSize: {x: 4002, y: 8048}
   vertical: 1
-  controlID: 155
+  controlID: 96
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -161,8 +161,8 @@ MonoBehaviour:
     y: 0
     width: 521
     height: 323
-  m_MinSize: {x: 202, y: 224}
-  m_MaxSize: {x: 4002, y: 4024}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 12}
@@ -506,9 +506,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 300b0000
-      m_LastClickedID: 0
-      m_ExpandedIDs: c2fbffff
+      m_SelectedIDs: 9880ffff
+      m_LastClickedID: -32616
+      m_ExpandedIDs: ec80ffff1081ffff2881ffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -570,7 +570,7 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/EffectExamples
   m_ViewMode: 0
   m_StartGridSize: 16
   m_LastFolders: []
@@ -582,7 +582,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 4c290000
     m_LastClickedID: 10572
-    m_ExpandedIDs: 00000000340c0000140d0000c60d0000ee0d0000f40e00003e0f0000b20f0000de0f0000921000009a100000c8100000ee110000561200008e120000b412000058130000ca1300003c1500006e380000
+    m_ExpandedIDs: 0000000052100000a01000009c75000072760000087700002e770000207800005c780000bc780000e07800007a790000ac7900007e7a0000c87a0000027b0000207b0000b87b00004c7d0000e8810000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -607,24 +607,24 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 304}
+    scrollPos: {x: 0, y: 228}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000340c0000140d0000c60d0000ee0d0000f40e00003e0f0000b20f0000de0f0000921000009a100000c8100000ee110000561200008e120000b412000058130000ca1300003c1500006e380000
+    m_ExpandedIDs: ffffffff0000000052100000a01000009c75000072760000087700002e770000207800005c780000bc780000e07800007a790000ac7900007e7a0000c87a0000027b0000207b0000b87b0000ea7c00004c7d0000e8810000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Boss_effect
-      m_OriginalName: Boss_effect
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 1962
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 10}
     m_SearchString: 
